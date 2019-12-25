@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">事件列表</a></li>
+        <li role="presentation"><a href="#">车辆列表</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                已完成事件
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">事件</a></li>
+                <li><a href="#">车辆</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>
+                使用人
+            </td>
+            <td>
+                用途
+            </td>
+            <td>
+                车辆
+            </td>
+            <td>
+                起始时间
+            </td>
+            <td>
+                结束时间
+            </td>
+            <td>
+                操作
+            </td>
+        </tr>
+        {% for plan in plans %}
+            <tr>
+                <td>{{ plan.p_name }}</td>
+                <td>{{ plan.p_do }}</td>
+                <td>{{ plan.p_car }}</td>
+                <td>{{ plan.p_time_begin }}</td>
+                <td>{{ plan.p_time_end }}</td>
+            </tr>
+        {% endfor %}
+
+        </thead>
+
+
+    </table>
+{% endblock %}
